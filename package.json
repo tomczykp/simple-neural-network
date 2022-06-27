@@ -1,0 +1,18 @@
+{
+  "name": "network",
+  "version": "1.0.0",
+  "description": "Simple implementatnio of neural network",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "nn"
+  ],
+  "author": "Piotr Tomczyk",
+  "license": "ISC",
+  "dependencies": {
+    "math": "^0.0.3"
+  }
+}
