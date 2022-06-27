@@ -1,17 +1,19 @@
-class Matrix {
+const overElemOp = (m1, m2, func) => {
+  if (m1.length != m2.length)
+    throw "Invalid shape of matrixes";
 
-  constructor(cols, rows, range) {
-    this.height = cols;
-    this.width = rows;
-  };
+  return m1.map((row, i) => { row.map((x, j) => func(x, m2[i][j])); });
+};
 
-  add: function(matrix) {
+const add = (m1, m2) => overElemOp(m1, m2, (x, y) => x + y);
+const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => x - y);
 
-  };
+const mul = (m1, m2) => {
+  return m1.map((row, rowI) => {row.reduce((x, xI) => x * m2[xI][rowI])});
+};
 
-  mul: function(matrix) {
-
-  };
+module.export = {
+  add,
+  sub,
+  mul
 }
-
-module.export = {Matrix}
