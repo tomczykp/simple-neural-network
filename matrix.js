@@ -1,36 +1,25 @@
+//
+//
+//
+
 const overElemOp = (m1, m2, func) => {
   if (m1.length != m2.length)
     throw "Invalid shape of matrixes";
 
-  return m1.map(
-      (row, i) => { row.map((x, j) => { return func(x, m2[i][j]); }); });
+  let res = [];
+  m1.forEach((row, i) => res.push(row.map((x, j) => func(x, m2[i][j]))));
+  return res;
 };
 
 const add = (m1, m2) => overElemOp(m1, m2, (x, y) => x + y);
 const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => x - y);
+const scale = (m1, a) => m1.map((row) => row.map((x) => a * x));
 
-const mul = (m1, m2) => {
-  // N = m1.length;
-  // res = [];
-  // for (let i = 0; i < N; i++) {
-  //   for (let j = 0; j < N; j++) {
-  //     res[i][j] = 0;
-  //     for (let k = 0; k < N; k++)
-  //       res[i][j] += mat1[i][k] * mat2[k][j];
-  //   }
-  // }
-  //
-  // // for (row of m1) {
-  // //   for () {
-  // //   }
-  // // }
-  //
-  // return res;
-  return m1.map((row, rowI) => {row.reduce((x, xI) => x * m2[xI][rowI])});
-};
+const mul = (m1, m2) => { return []; };
 
 module.exports = {
   add,
   sub,
-  mul
+  mul,
+  scale
 }
