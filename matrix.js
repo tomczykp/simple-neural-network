@@ -21,19 +21,19 @@ const column = (m, i) => m.map((row) => row[i]);
 const add = (m1, m2) => overElemOp(m1, m2, (x, y) => x + y);
 const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => x - y);
 const scale = (m1, a) => m1.map((row) => row.map((x) => a * x));
+const transpose = (m1) => m1[0].map((_, ci) => m1.map((row) => row[ci]));
 
 const mul = (m1, m2) => {
-  let result = [ [ 0 * m2[0].length ] * m1.length ];
-  const l = m2.length;
-  m1.forEach((row, i) => {
-    if (row.length != l)
-      throw new Error("Invalid shape of matrixes");
-  });
+  let result = new Array(0);
+  return m1.map(
+      (row, i) => transpose(m2).map(
+          (col) => row.reduce((acc, rI, index) => acc += rI * col[index], 0)));
 };
 
 module.exports = {
   add,
   sub,
   mul,
-  scale
+  scale,
+  transpose
 };
