@@ -23,12 +23,10 @@ const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => x - y);
 const scale = (m1, a) => m1.map((row) => row.map((x) => a * x));
 const transpose = (m1) => m1[0].map((_, ci) => m1.map((row) => row[ci]));
 
-const mul = (m1, m2) => {
-  let result = new Array(0);
-  return m1.map(
-      (row, i) => transpose(m2).map(
-          (col) => row.reduce((acc, rI, index) => acc += rI * col[index], 0)));
-};
+const mul = (m1, m2) => m1.map(
+    (row, i) => transpose(m2).map(
+        (col) => row.reduce((acc, rI, index) => acc += rI * col[index], 0)));
+;
 
 module.exports = {
   add,
