@@ -1,0 +1,11 @@
+# We'll use defaults from the LLVM style, but with 4 columns indentation.
+BasedOnStyle: Mozilla
+IndentWidth: 4
+
+Language: JavaScript
+ColumnLimit: 150
+AllowShortFunctionsOnASingleLine: All
+BraceWrapping:
+    AfterFunction: false
+
+UseTabStyle: Always

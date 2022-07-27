@@ -10,16 +10,16 @@ const avg = (xs) => xs.reduce((acc, x) => acc + x, 0) / xs.length;
 //   let suma = 0;
 //   let n = tab.length;
 //   for (let i = 0; i < n; i++) {
-//     suma += tab[i];
+//	 suma += tab[i];
 //   }
 //   return suma / n;
 // }
 
 module.exports = {
-  head,
-  tail,
-  inc,
-  add,
-  adder,
-  avg
+	head,
+	tail,
+	inc,
+	add,
+	adder,
+	avg
 };
