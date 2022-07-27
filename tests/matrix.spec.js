@@ -1,4 +1,4 @@
-// Tests for helper functions
+// Tests for matrix handling functions
 const {add, sub, mul, transpose, scale} = require("../matrix")
 
 // GETTING NON-EXPORTED (aka not public) FUNCTION

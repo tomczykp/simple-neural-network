@@ -1,5 +1,6 @@
 //
 // Implementatnio of basic matrices operations
+const {adder} = require('./helper');
 
 const overElemOp = (m1, m2, func) => {
   if (m1.length != m2.length)
@@ -18,15 +19,16 @@ const overElemOp = (m1, m2, func) => {
 
 const row = (m, i) => m[i];
 const column = (m, i) => m.map((row) => row[i]);
-const add = (m1, m2) => overElemOp(m1, m2, (x, y) => x + y);
-const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => x - y);
+
+const add = (m1, m2) => overElemOp(m1, m2, (x, y) => adder(x)(y));
+const sub = (m1, m2) => overElemOp(m1, m2, (x, y) => adder(x)(-y));
+
 const scale = (m1, a) => m1.map((row) => row.map((x) => a * x));
 const transpose = (m1) => m1[0].map((_, ci) => m1.map((row) => row[ci]));
 
 const mul = (m1, m2) => m1.map(
     (row, i) => transpose(m2).map(
         (col) => row.reduce((acc, rI, index) => acc += rI * col[index], 0)));
-;
 
 module.exports = {
   add,

@@ -1,8 +1,8 @@
 // Tests for helper functions
-const {add, inc, head, tail} = require("../helper")
+const {add, inc, head, tail, avg} = require("../helper")
 
 function helperDummyTest() {
-  t = [ 1, 2, 3, 4, 5 ];
+  let t = [ 1, 2, 3, 4, 5 ];
   expect(head(t)).toStrictEqual(1);
   expect(tail(t)).toStrictEqual([ 2, 3, 4, 5 ]);
 }
@@ -14,3 +14,10 @@ const nums = [ [ [ -1, 1 ], 0 ], [ [ -0, 5 ], 5 ], [ [ 1, -10 ], -9 ] ];
 
 test.each(nums)("Add test value %j with result %j",
                 (data, result) => expect(add(...data)).toStrictEqual(result));
+
+test("Average test", () => {
+  let t = [ 1, 2, 3, 4, 5.0 ];
+  expect(avg(t)).toStrictEqual(3.0);
+  t = [ 81, -2, 13, 4, -5 ];
+  expect(avg(t)).toStrictEqual(18.2);
+});
